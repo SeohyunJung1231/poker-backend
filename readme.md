@@ -18,7 +18,75 @@
 <br>
 
 ---
-## 구현 설명
+## 설계
+### ERD
+![erd.png](docs/erd.png)
+
+### REST API
+
+<table>
+  <tr>
+    <th align="center">카테고리</th>
+    <th>기능</th>
+    <th>HTTP 매서드</th>
+    <th>HTTP PATH</th>
+  </tr>
+  <tr >
+    <td align="center" rowspan="4">플레이어</td>
+    <td align="center">추가</td>
+    <td align="center">POST</td>
+    <td><pre><code>/players</code></pre></td>
+  </tr>
+  <tr>
+    <td align="center">조회</td>
+    <td align="center">GET</td>
+    <td><pre><code>/players/{playerId}</code></pre></td>
+  </tr>
+  <tr>
+    <td align="center">수정</td>
+    <td align="center">PATCH</td>
+    <td><pre><code>/players/{playerId}</code></pre></td>
+  </tr>
+  <tr>
+    <td align="center">삭제</td>
+    <td align="center">DELETE</td>
+    <td><pre><code>/players/{playerId}</code></pre></td>
+  </tr>
+  <tr>
+    <td rowspan="2">로그인</td>
+    <td align="center">로그인</td>
+    <td align="center">POST</td>
+    <td><pre><code>/login</code></pre></td>
+  </tr>
+  <tr>
+    <td align="center">로그아웃</td>
+    <td align="center">GET</td>
+    <td><pre><code>/logout</code></pre></td>
+  </tr>
+
+  <tr>
+    <td rowspan="3">게임</td>
+    <td align="center">시작</td>
+    <td align="center">POST</td>
+    <td><pre><code>/games</code></pre></td>
+  </tr>
+  <tr>
+    <td align="center">중간 카드 발급</td>
+    <td align="center">PUT</td>
+    <td><pre><code>/games/{gameSessionId}</code></pre></td>
+  </tr>
+  <tr>
+    <td align="center">결과</td>
+    <td align="center">GET</td>
+    <td><pre><code>/games/{gameSessionId}</code></pre></td>
+  </tr>
+</table>
+
+
+### 아키텍처
+
+---
+## 구현
 ### 구현 기능
 * 회원 : 가입/탈퇴/조회 기능
 * 게임 : 시작/홀드 기능
