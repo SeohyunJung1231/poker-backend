@@ -8,9 +8,9 @@ import jakarta.persistence.*
 class Card(
     @Id
     val id: Long,
-    @Enumerated(jakarta.persistence.EnumType.STRING)
+    @Enumerated(EnumType.STRING)
     val suit: Suit,
-    @Enumerated(jakarta.persistence.EnumType.STRING)
+    @Enumerated(EnumType.STRING)
     @Column(name = "card_rank")
     val rank: Rank
 )

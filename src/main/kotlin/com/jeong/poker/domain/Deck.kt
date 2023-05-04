@@ -1,15 +1,10 @@
 package com.jeong.poker.domain
 
-import jakarta.annotation.PostConstruct
-import org.springframework.stereotype.Component
 import java.util.*
 
-@Component
-class Deck { // 새로운 자료구조
-    val cards = LinkedList<Card>()
-
-    @PostConstruct
-    fun init() {
+class Deck {
+    private val cards = LinkedList<Card>()
+    init {
         for (suit in Suit.values()) {
             for (rank in Rank.values()) {
                 this.cards.add(Card(suit, rank))
@@ -18,7 +13,15 @@ class Deck { // 새로운 자료구조
         this.cards.shuffle()
     }
 
-    fun dealCards(): Card = cards.remove()
+    fun dealCards(number: Int): List<Card> {
+        cards.shuffle()
+        return cards.take(number)
+    }
+
+    fun removeCards(target: Set<Card>) : List<Card> {
+        cards.removeAll(target.toSet())
+        return cards
+    }
 
     data class Card(
         val suit: Suit, val rank: Rank
